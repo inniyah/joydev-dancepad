@@ -1,4 +1,4 @@
-0. Introduction
+# Introduction
 
 This kernel module turns what my dance pad sends through a PS/2 to USB adapter into something that works for the game Stepmania.
 
@@ -13,16 +13,16 @@ http://www.inf.ufsc.br/~adiel/en/misc/dance-pad/index.html
 Miriam Ruiz <miriam@debian.org>
 
 
-1. Install and prepare the kernel headers
+# Step 1: Install and prepare the kernel headers
 
-$ sudo -i
-# apt-get install module-assistant
-# m-a prepare
+> $ sudo -i
+> # apt-get install module-assistant
+> # m-a prepare
 
 
-2. Compile the code
+# Step 2: Compile the code
 
-$ make
+> $ make
 make -C /lib/modules/[version]/build M=/[DIRECTORY] modules
 make[1]: se ingresa al directorio `/usr/src/linux-headers-[version]'
   CC [M]  /home/inniyah/joydev/joydev-dancepad.o
@@ -33,28 +33,28 @@ make[1]: se ingresa al directorio `/usr/src/linux-headers-[version]'
 make[1]: se sale del directorio `/usr/src/linux-headers-[version]'
 
 
-3. Remove the vanilla module from the running kernel
+# Step 3: Remove the vanilla module from the running kernel
 
-$ sudo rmmod joydev
-
-
-4. Insert the compiled module into the running kernel
-
-$ sudo insmod joydev-dancepad.ko
+> $ sudo rmmod joydev
 
 
-5. Check that the module has been successfully installed
+# Step 4: Insert the compiled module into the running kernel
 
-$ lsmod | grep joydev
+> $ sudo insmod joydev-dancepad.ko
+
+
+# Step 6: Check that the module has been successfully installed
+
+> $ lsmod | grep joydev
 joydev_dancepad        17087  0 
 
 
-6. Check that the module works okay
+# Step 7 (optional): Check that the module works okay
 
-$ jstest-gtk 
+> $ jstest-gtk 
 
 
-7. More information
+# More information
 
 Stepmania:
 http://www.stepmania.com/
