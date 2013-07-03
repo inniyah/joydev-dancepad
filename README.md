@@ -1,4 +1,4 @@
-# Introduction
+* **Introduction**
 
 This kernel module turns what my dance pad sends through a PS/2 to USB adapter into something that works for the game Stepmania.
 
@@ -13,16 +13,18 @@ http://www.inf.ufsc.br/~adiel/en/misc/dance-pad/index.html
 Miriam Ruiz <miriam@debian.org>
 
 
-# Step 1: Install and prepare the kernel headers
+* **Step 1: Install and prepare the kernel headers**
 
-> $ sudo -i
-> # apt-get install module-assistant
-> # m-a prepare
+```sh
+$ sudo -i
+# apt-get install module-assistant
+# m-a prepare
+```
 
+* **Step 2: Compile the code**
 
-# Step 2: Compile the code
-
-> $ make
+```sh
+$ make
 make -C /lib/modules/[version]/build M=/[DIRECTORY] modules
 make[1]: se ingresa al directorio `/usr/src/linux-headers-[version]'
   CC [M]  /home/inniyah/joydev/joydev-dancepad.o
@@ -31,36 +33,37 @@ make[1]: se ingresa al directorio `/usr/src/linux-headers-[version]'
   CC      /home/inniyah/joydev/joydev-dancepad.mod.o
   LD [M]  /home/inniyah/joydev/joydev-dancepad.ko
 make[1]: se sale del directorio `/usr/src/linux-headers-[version]'
+```
 
+* **Step 3: Remove the vanilla module from the running kernel**
 
-# Step 3: Remove the vanilla module from the running kernel
+```sh
+$ sudo rmmod joydev
+```
 
-> $ sudo rmmod joydev
+* **Step 4: Insert the compiled module into the running kernel**
 
+```sh
+$ sudo insmod joydev-dancepad.ko
+```
 
-# Step 4: Insert the compiled module into the running kernel
+* **Step 6: Check that the module has been successfully installed**
 
-> $ sudo insmod joydev-dancepad.ko
-
-
-# Step 6: Check that the module has been successfully installed
-
-> $ lsmod | grep joydev
+```sh
+$ lsmod | grep joydev
 joydev_dancepad        17087  0 
+```
 
+* **Step 7 (optional): Check that the module works okay**
 
-# Step 7 (optional): Check that the module works okay
+```sh
+$ jstest-gtk 
+```
 
-> $ jstest-gtk 
+* **More information**
 
+ - Stepmania: http://www.stepmania.com/
 
-# More information
+ - Getting my dance pad to work: http://www.inf.ufsc.br/~adiel/en/misc/dance-pad/index.html
 
-Stepmania:
-http://www.stepmania.com/
-
-Getting my dance pad to work:
-http://www.inf.ufsc.br/~adiel/en/misc/dance-pad/index.html
-
-“Hello World” Loadable Kernel Module:
-http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/
+ - "Hello World" Loadable Kernel Module: http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/
