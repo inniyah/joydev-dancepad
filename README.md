@@ -67,3 +67,5 @@ $ jstest-gtk
  - Getting my dance pad to work: http://www.inf.ufsc.br/~adiel/en/misc/dance-pad/index.html
 
  - "Hello World" Loadable Kernel Module: http://blog.markloiseau.com/2012/04/hello-world-loadable-kernel-module-tutorial/
+
+ - My 2 * PS2 Game Controllers to PC USB Convertor: http://dx.com/p/2-ps2-game-controllers-to-pc-usb-convertor-18022
