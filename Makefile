@@ -1,4 +1,4 @@
-obj-m := joydev.o
+obj-m := joydev-dancepad.o
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
 
