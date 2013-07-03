@@ -15,7 +15,7 @@ Miriam Ruiz <miriam@debian.org>
 
 * **Step 1: Install and prepare the kernel headers**
 
-```sh
+```
 $ sudo -i
 # apt-get install module-assistant
 # m-a prepare
@@ -23,7 +23,7 @@ $ sudo -i
 
 * **Step 2: Compile the code**
 
-```sh
+```
 $ make
 make -C /lib/modules/[version]/build M=/[DIRECTORY] modules
 make[1]: se ingresa al directorio `/usr/src/linux-headers-[version]'
@@ -37,26 +37,26 @@ make[1]: se sale del directorio `/usr/src/linux-headers-[version]'
 
 * **Step 3: Remove the vanilla module from the running kernel**
 
-```sh
+```
 $ sudo rmmod joydev
 ```
 
 * **Step 4: Insert the compiled module into the running kernel**
 
-```sh
+```
 $ sudo insmod joydev-dancepad.ko
 ```
 
 * **Step 6: Check that the module has been successfully installed**
 
-```sh
+```
 $ lsmod | grep joydev
 joydev_dancepad        17087  0 
 ```
 
 * **Step 7 (optional): Check that the module works okay**
 
-```sh
+```
 $ jstest-gtk 
 ```
 
